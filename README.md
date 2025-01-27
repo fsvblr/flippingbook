@@ -15,13 +15,41 @@ The public part consists of a list of categories, a list of publications and vie
 
 The [flipbook-vue](https://github.com/ts1/flipbook-vue) and [Vuetify slider](https://vuetifyjs.com/en/components/sliders/) scripts were used to display Flipping Book.
 
-## Installation
+## Installation from packagist.org (not ready yet)
 
 ```
 composer require fsvblr/flippingbook
 ```
 ```
 php artisan vendor:publish --provider="Flippingbook\FlippingbookServiceProvider"
+```
+```
+php artisan migrate
+```
+
+## Installation from github.com
+
+Add to your Laravel project's composer.json file:
+```
+"repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/fsvblr/flippingbook"
+        }
+    ],
+"require": {
+        ...
+        "fsvblr/flippingbook": "dev-master"
+    },
+```
+```
+composer update
+```
+```
+php artisan vendor:publish --provider="Flippingbook\FlippingbookServiceProvider"
+```
+```
+php artisan migrate
 ```
 
 ## Please note
