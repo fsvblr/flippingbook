@@ -3,5 +3,3 @@
 # /public/build
 /vendor
 .idea
-composer.lock
-package-lock.json
