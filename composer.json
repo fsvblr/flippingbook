@@ -12,10 +12,6 @@
     ],
     "repositories": [
         {
-            "type": "path",
-            "url": "../laraflip-package/flippingbook"
-        },
-        {
             "type": "git",
             "url": "https://github.com/fsvblr/flippingbook"
         }
