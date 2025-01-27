@@ -1,2 +1,42 @@
-# flippingbook
-Flippingbook: PHP-package for Laravel
+# Flipping Book (for Laravel)
+
+## About
+
+Flipping Book package allows you to create digital content like e-books, online magazines, products catalogues with page flip, reader-friendly controls and embed them right on your Laravel site.
+
+This Flipping Book package is developed to make your digital publications look realistic, personalized and attract customers’ attention. People can flip pages of e-book, online newspaper, etc., with a finger touch and feel like holding a real one.
+
+Flipping book consists of an administrative part and a public part. The administrative panel consists of 3 parts: categories, publications, pages. The publication page is based on the uploaded page image. Multiple page uploads into one publication from a zip archive are available.
+
+If you want to turn a source file in **PDF format into a Flipping Book**, you can first use any of the many online 
+services "pdf to png", and then upload a zip with pictures to the publication with one click.
+
+The public part consists of a list of categories, a list of publications and viewing publications in Flipping Book format.
+
+The [flipbook-vue](https://github.com/ts1/flipbook-vue) and [Vuetify slider](https://vuetifyjs.com/en/components/sliders/) scripts were used to display Flipping Book.
+
+## Installation
+
+```
+composer require fsvblr/flippingbook
+```
+```
+php artisan vendor:publish --provider="Flippingbook\FlippingbookServiceProvider"
+```
+
+## Please note
+
+- It is assumed that your site has user [authentication](https://laravel.com/docs/authentication). If it does not, then the simplest option is [laravel/ui](https://packagist.org/packages/laravel/ui).
+- Don't forget to specify the administrator user ID in the flippingbook config. The rest of the parameters are at your discretion.
+- Don't forget to create a storage link on your site if you haven't done so yet:
+```
+php artisan storage:link
+```
+- You can find the routes of the administrative and public parts of the Flipping Book for embedding them into your menus on the site in the routes file.
+- The ImageMagick and Zip extensions are dependencies in this project.
+- The package is tested on Laravel Framework 11.19.0.
+- The path to the Flippingbook admin panel is /admin/flippingbook .
+
+## Demo
+
+Screenshots of the admin and public parts are available in the folder /public/images/demo .
