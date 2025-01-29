@@ -28,9 +28,9 @@ class HelperTest extends FeatureTestCase
     public function test_prepare_publication_folder(): void
     {
         FlippingbookHelper::preparePublicationFolder(1, true);
-        $this->assertDirectoryExists(Storage::getConfig()['root'] . '/public/flippingbook/publications/1/thumbs');
+        $this->assertDirectoryExists(Storage::disk('flippingbook')->path('') . 'flippingbook/publications/1/thumbs');
 
         FlippingbookHelper::preparePublicationFolder(2, false);
-        $this->assertDirectoryExists(Storage::getConfig()['root'] . '/public/flippingbook/publications/2/thumbs');
+        $this->assertDirectoryExists(Storage::disk('flippingbook')->path('') . 'flippingbook/publications/2/thumbs');
     }
 }

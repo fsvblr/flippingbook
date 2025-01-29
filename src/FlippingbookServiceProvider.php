@@ -37,5 +37,15 @@ class FlippingbookServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../public' => public_path('vendor/flippingbook'),
         ], 'public');
+
+        $this->app['config']['filesystems.disks.flippingbook'] =
+            [
+                'driver' => 'local',
+                'root' => storage_path('app/public'),
+                'url' => env('APP_URL').'/storage',
+                'visibility' => 'public',
+                'throw' => false,
+                'report' => false,
+            ];
     }
 }

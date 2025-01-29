@@ -44,19 +44,19 @@ class FlippingbookHelper
      */
     public static function preparePublicationFolder($publication_id=0, $isNew=true)
     {
-        if(!Storage::exists('public/flippingbook/publications')){
-            Storage::makeDirectory('public/flippingbook/publications', '0755', true);
+        if(!Storage::disk('flippingbook')->exists('flippingbook/publications')){
+            Storage::disk('flippingbook')->makeDirectory('flippingbook/publications', '0755', true);
         }
 
-        if($isNew && Storage::exists('public/flippingbook/publications/'.$publication_id)){
-            Storage::deleteDirectory('public/flippingbook/publications/'.$publication_id);
+        if($isNew && Storage::disk('flippingbook')->exists('flippingbook/publications/'.$publication_id)){
+            Storage::disk('flippingbook')->deleteDirectory('flippingbook/publications/'.$publication_id);
         }
-        if(!Storage::exists('public/flippingbook/publications/'.$publication_id)){
-            Storage::makeDirectory('public/flippingbook/publications/'.$publication_id);
+        if(!Storage::disk('flippingbook')->exists('flippingbook/publications/'.$publication_id)){
+            Storage::disk('flippingbook')->makeDirectory('flippingbook/publications/'.$publication_id);
         }
 
-        if(!Storage::exists('public/flippingbook/publications/'.$publication_id.'/thumbs')){
-            Storage::makeDirectory('public/flippingbook/publications/'.$publication_id.'/thumbs');
+        if(!Storage::disk('flippingbook')->exists('flippingbook/publications/'.$publication_id.'/thumbs')){
+            Storage::disk('flippingbook')->makeDirectory('flippingbook/publications/'.$publication_id.'/thumbs');
         }
 
         return true;

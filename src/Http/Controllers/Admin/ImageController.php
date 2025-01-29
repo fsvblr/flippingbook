@@ -33,19 +33,19 @@ class ImageController
             throw new \Exception('Could not open ZIP file. Error code: ' . $zipStatus);
         }
 
-        $publication_path = 'public/flippingbook/publications/'.$publication_id;
+        $publication_path = 'flippingbook/publications/'.$publication_id;
         $original_path = $publication_path.'/original';
 
-        if(Storage::exists($original_path)){
-            Storage::deleteDirectory($original_path);
+        if(Storage::disk('flippingbook')->exists($original_path)){
+            Storage::disk('flippingbook')->deleteDirectory($original_path);
         }
-        Storage::makeDirectory($original_path);
+        Storage::disk('flippingbook')->makeDirectory($original_path);
 
-        $zip->extractTo(Storage::getConfig()['root'] .'/'. $original_path);
+        $zip->extractTo(Storage::disk('flippingbook')->path('') . $original_path);
         $zip->close();
         Storage::delete($zipFilePath);
 
-        $files = Storage::allFiles($original_path);
+        $files = Storage::disk('flippingbook')->allFiles($original_path);
         if(empty($files)) {
             return false;
         }
@@ -57,7 +57,7 @@ class ImageController
 
         $i = 1;
         foreach($files as $file) {
-            if(!in_array(Storage::mimeType($file), self::AllowedMimeTypes)) {
+            if(!in_array(Storage::disk('flippingbook')->mimeType($file), self::AllowedMimeTypes)) {
                 continue;
             }
 
@@ -82,7 +82,7 @@ class ImageController
             $i++;
         }
 
-        Storage::deleteDirectory($original_path);
+        Storage::disk('flippingbook')->deleteDirectory($original_path);
 
         return true;
     }
@@ -102,20 +102,20 @@ class ImageController
             return false;
         }
 
-        $publication_path = 'public/flippingbook/publications/'.$page->publication_id;
+        $publication_path = 'flippingbook/publications/'.$page->publication_id;
         $original_path = $publication_path.'/original';
 
-        if(Storage::exists($original_path)){
-            Storage::deleteDirectory($original_path);
+        if(Storage::disk('flippingbook')->exists($original_path)){
+            Storage::disk('flippingbook')->deleteDirectory($original_path);
         }
-        Storage::makeDirectory($original_path);
+        Storage::disk('flippingbook')->makeDirectory($original_path);
 
         if($old_image_name) {
-            if(Storage::exists($publication_path.'/'.$old_image_name)) {
-                Storage::delete($publication_path.'/'.$old_image_name);
+            if(Storage::disk('flippingbook')->exists($publication_path.'/'.$old_image_name)) {
+                Storage::disk('flippingbook')->delete($publication_path.'/'.$old_image_name);
             }
-            if(Storage::exists($publication_path.'/thumbs/'.$old_image_name)) {
-                Storage::delete($publication_path.'/thumbs/'.$old_image_name);
+            if(Storage::disk('flippingbook')->exists($publication_path.'/thumbs/'.$old_image_name)) {
+                Storage::disk('flippingbook')->delete($publication_path.'/thumbs/'.$old_image_name);
             }
         }
 
@@ -135,7 +135,7 @@ class ImageController
         }
 
         if(self::saveSetImages($page, $path)) {
-            Storage::deleteDirectory($original_path);
+            Storage::disk('flippingbook')->deleteDirectory($original_path);
 
             if($need_update) {
                 Page::where('id', $page->id)->update([
@@ -170,10 +170,10 @@ class ImageController
             return false;
         }
 
-        $publication_path = 'public/flippingbook/publications/'. $page->publication_id;
-        $publication_path_full = Storage::getConfig()['root'] .'/'. $publication_path;
+        $publication_path = 'flippingbook/publications/'. $page->publication_id;
+        $publication_path_full = Storage::disk('flippingbook')->path('') . $publication_path;
 
-        $im = new Imagick(Storage::getConfig()['root'].'/'.$original_image_store_path);
+        $im = new Imagick(Storage::disk('flippingbook')->path('') . $original_image_store_path);
 
         $ratio = $im->getImageWidth() / $im->getImageHeight();
         $sizes = self::getImageSizesByRatio($ratio);
@@ -191,7 +191,7 @@ class ImageController
         }
         $im->destroy();
 
-        $im = new Imagick(Storage::getConfig()['root'].'/'.$original_image_store_path);
+        $im = new Imagick(Storage::disk('flippingbook')->path('') . $original_image_store_path);
         $im->resizeImage(
             $sizes['full']['width'],
             $sizes['full']['height'],

@@ -15,7 +15,7 @@ The public part consists of a list of categories, a list of publications and vie
 
 The [flipbook-vue](https://github.com/ts1/flipbook-vue) and [Vuetify slider](https://vuetifyjs.com/en/components/sliders/) scripts were used to display Flipping Book.
 
-## Installation from packagist.org (not ready yet)
+## ~~Installation from packagist.org~~ (not ready yet)
 
 ```
 composer require fsvblr/flippingbook

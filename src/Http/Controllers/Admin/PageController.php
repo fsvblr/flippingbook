@@ -196,8 +196,8 @@ class PageController
             $image = $page->image;
             if($page->delete()) {
                 $deleted[] = $id;
-                Storage::delete('public/flippingbook/publications/'.$publication_id.'/thumbs/'.$image);
-                Storage::delete('public/flippingbook/publications/'.$publication_id.'/'.$image);
+                Storage::disk('flippingbook')->delete('flippingbook/publications/'.$publication_id.'/thumbs/'.$image);
+                Storage::disk('flippingbook')->delete('flippingbook/publications/'.$publication_id.'/'.$image);
             }
         }
 

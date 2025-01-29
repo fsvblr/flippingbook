@@ -50,7 +50,7 @@ class AdminPageTest extends FeatureTestCase
         ]);
         FlippingbookHelper::preparePublicationFolder($publication->id, true);
 
-        Storage::fake('publications');
+        Storage::disk('flippingbook')->fake('publications');
         $file = UploadedFile::fake()->image('page1.jpg', 1000, 1500)->size(1000);
 
         $response = $this->post('/admin/flippingbook/pages/store', [
@@ -68,7 +68,7 @@ class AdminPageTest extends FeatureTestCase
             ->assertSessionHasNoErrors();
 
         $this->assertFileExists(
-            Storage::getConfig()['root'] . '/public/flippingbook/publications/' . $publication->id . '/' . $file->name,
+            Storage::disk('flippingbook')->path('') . 'flippingbook/publications/' . $publication->id . '/' . $file->name,
             "Given filename ['".$file->name."'] doesn't exists"
         );
     }

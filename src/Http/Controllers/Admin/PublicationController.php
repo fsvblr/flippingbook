@@ -267,7 +267,7 @@ class PublicationController
             $publication = Publication::find($id);
             if($publication->delete()) {
                 $deleted[] = $id;
-                Storage::deleteDirectory('public/flippingbook/publications/'.$id);
+                Storage::disk('flippingbook')->deleteDirectory('flippingbook/publications/'.$id);
             }
         }
 
