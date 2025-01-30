@@ -34,6 +34,8 @@ class FeatureTestCase extends TestCase
         $app['config']->set('flippingbook.image_thumb_big_side', 150);
         $app['config']->set('flippingbook.image_full_small_side', 400);
         $app['config']->set('flippingbook.image_full_big_side', 600);
+
+        $app['config']->set('filesystems.default', 'public');
     }
 
     protected function setUpDatabase()

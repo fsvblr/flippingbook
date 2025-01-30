@@ -50,7 +50,7 @@ class AdminPageTest extends FeatureTestCase
         ]);
         FlippingbookHelper::preparePublicationFolder($publication->id, true);
 
-        Storage::disk('flippingbook')->fake('publications');
+        Storage::fake('publications');
         $file = UploadedFile::fake()->image('page1.jpg', 1000, 1500)->size(1000);
 
         $response = $this->post('/admin/flippingbook/pages/store', [
