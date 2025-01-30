@@ -62,7 +62,7 @@ php artisan storage:link
 ```
 - You can find the routes of the administrative and public parts of the Flipping Book for embedding them into your menus on the site in the routes file.
 - The ImageMagick and Zip extensions are dependencies in this project.
-- The package is tested on Laravel Framework 11.19.0.
+- The package is tested on Laravel Framework 11.40.0.
 - The path to the Flippingbook admin panel is /admin/flippingbook .
 
 ## Demo
