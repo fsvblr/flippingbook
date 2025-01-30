@@ -119,7 +119,7 @@ class ImageController
             }
         }
 
-        $path = $image->store($original_path);
+        $path = Storage::disk('flippingbook')->putFile($original_path, $image);
 
         $need_update = false;
         $name_duplicate = DB::table('flippingbook_pages')
