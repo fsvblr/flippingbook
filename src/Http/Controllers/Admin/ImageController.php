@@ -208,6 +208,12 @@ class ImageController
         return true;
     }
 
+    /**
+     * Getting preset image sizes based on its ratio.
+     *
+     * @param float $ratio
+     * @return array[]
+     */
     private static function getImageSizesByRatio($ratio=1)
     {
         if($ratio < 1) {
