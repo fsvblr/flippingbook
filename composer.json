@@ -45,7 +45,5 @@
                 "Flippingbook\\FlippingbookServiceProvider"
             ]
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
