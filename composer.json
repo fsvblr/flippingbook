@@ -1,6 +1,5 @@
 {
     "name": "fsvblr/flippingbook",
-    "version": "1.0.0",
     "description": "Creating and viewing flipping book for Laravel (admin and front parts).",
     "keywords": ["laravel", "flipping book", "flipbook"],
     "license": "MIT",
