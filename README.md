@@ -27,31 +27,6 @@ php artisan vendor:publish --provider="Flippingbook\FlippingbookServiceProvider"
 php artisan migrate
 ```
 
-## Installation from github.com
-
-Add to your Laravel project's composer.json file:
-```
-"repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/fsvblr/flippingbook"
-        }
-    ],
-"require": {
-        ...
-        "fsvblr/flippingbook": "dev-master"
-    },
-```
-```
-composer update
-```
-```
-php artisan vendor:publish --provider="Flippingbook\FlippingbookServiceProvider"
-```
-```
-php artisan migrate
-```
-
 ## Please note
 
 - It is assumed that your site has user [authentication](https://laravel.com/docs/authentication). If it does not, then the simplest option is [laravel/ui](https://packagist.org/packages/laravel/ui).
