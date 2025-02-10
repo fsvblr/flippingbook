@@ -1,0 +1,33 @@
+{
+  "resources/css/flippingbook.css": {
+    "file": "assets/flippingbook-CfDVDrcM.css",
+    "src": "resources/css/flippingbook.css",
+    "isEntry": true
+  },
+  "resources/css/trix.css": {
+    "file": "assets/trix-DWoxlxHu.css",
+    "src": "resources/css/trix.css",
+    "isEntry": true
+  },
+  "resources/js/flippingbook-admin.js": {
+    "file": "assets/flippingbook-admin-DqG1gglM.js",
+    "name": "flippingbook-admin",
+    "src": "resources/js/flippingbook-admin.js",
+    "isEntry": true
+  },
+  "resources/js/flippingbook.js": {
+    "file": "assets/flippingbook-DZqPZ5V1.js",
+    "name": "flippingbook",
+    "src": "resources/js/flippingbook.js",
+    "isEntry": true,
+    "css": [
+      "assets/flippingbook-BZ8nMm2D.css"
+    ]
+  },
+  "resources/js/trix.umd.min.js": {
+    "file": "assets/trix.umd.min-DDGC0_t5.js",
+    "name": "trix.umd.min",
+    "src": "resources/js/trix.umd.min.js",
+    "isEntry": true
+  }
+}

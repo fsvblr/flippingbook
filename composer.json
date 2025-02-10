@@ -1,0 +1,50 @@
+{
+    "name": "fsvblr/flippingbook",
+    "version": "1.0.0",
+    "description": "Creating and viewing flipping book for Laravel (admin and front parts).",
+    "keywords": ["laravel", "flipping book", "flipbook"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fsvblr",
+            "homepage": "https://github.com/fsvblr/flippingbook"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/fsvblr/flippingbook"
+        }
+    ],
+    "require": {
+        "php": "^8.1|^8.2|^8.3",
+        "ext-imagick": "*",
+        "ext-zip": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.3",
+        "orchestra/testbench": "^9.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flippingbook\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Flippingbook\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Flippingbook\\FlippingbookServiceProvider"
+            ]
+        }
+    }
+}
