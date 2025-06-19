@@ -30,7 +30,7 @@ php artisan migrate
 ## Please note
 
 - It is assumed that your site has user [authentication](https://laravel.com/docs/authentication). If it does not, then the simplest option is [laravel/ui](https://packagist.org/packages/laravel/ui).
-- Don't forget to wrap flippingbook's admin routes with access check.
+- Don't forget to wrap flipping book's admin routes with access check.
 - Don't forget to create a storage link on your site if you haven't done so yet:
 ```
 php artisan storage:link
